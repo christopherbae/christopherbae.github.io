@@ -7,8 +7,8 @@ body, html{
     height: 100%;
 
 }
-.bg {
-    background-image: url("coffee.jpg");
+.bg{
+    background-color: #79B3C8;
     height: 100%;
     background-repeat: no-repeat;
     background-size: cover;
@@ -22,16 +22,9 @@ body, html{
     margin-right: auto;
     margin-left: auto;
 }
-button{
-    background: #79B3C8;
-    border-radius: 100px;
-    padding: 20px 60px;
-    color: white;
-    font-size: 1.45em;
-    position: initial;
-    margin: 0 auto;
-    display:flex;
-    justify-content: center;
+.container{
+    position: relative;
+    display: block;
     align-content: center;
-
+    margin: 0 auto;
 }

@@ -14,7 +14,7 @@ body, html{
     background-size: cover;
     background-position: center;
 }
-img {
+.responsive{
     position: relative;
     display: block;
     width: 500px;
@@ -27,10 +27,8 @@ button{
     padding: 20px 60px;
     color: white;
     font-size: 1.45em;
-    margin: 0 15px;
     position: relative;
-    top: -10%;
-    left: 40%;
+    margin-left: 40%;
 
 
 }

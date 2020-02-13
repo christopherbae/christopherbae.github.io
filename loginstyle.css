@@ -3,18 +3,22 @@
     padding: 0;
     border: 0;
 }
-body, html{
+html,
+body {
     height: 100%;
+}
 
+body {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    background-color: #F3EFE1;
 }
-.bg{
-    background-color: #79B3C8;
-    height: 100%;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: initial;
-}
-.responsive{
+
+.form-login .responsive{
     position: relative;
     display: block;
     width: 400px;
@@ -22,9 +26,75 @@ body, html{
     margin-right: auto;
     margin-left: auto;
 }
-.container{
+.form-login{
+    width: 100%;
+    max-width: 330px;
+    padding: 15px;
+    margin: auto;
+}
+.form-login .input-box{
     position: relative;
+    box-sizing: border-box;
+    height: auto;
+    padding: 10px;
+    font-size: 16px;
+}
+.form-login .input-box:focus{
+z-index: 2;
+}
+.form-login input[type = "username"]{
+    position: relative;
+    margin-bottom: -1px;
+    margin-left: 10%;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+.form-login input[type = "password"]{
+    position: relative;
+    margin-bottom: 5px;
+    margin-left: 10%;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.form-signin input[type="username"] {
+    margin-bottom: -5px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+.form-signin .input-box {
+    position: relative;
+    box-sizing: border-box;
+    height: auto;
+    padding: 10px;
+    font-size: 16px;
+}
+.input-box{
     display: block;
-    align-content: center;
+    width: 100%;
+    height: calc(1.5em + .75rem + 2px);
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+button{
+    background: #79B3C8;
+    border-radius: 100px;
+    padding: 20px 60px;
+    color: white;
+    font-size: 1.45em;
+    position: initial;
     margin: 0 auto;
+    margin-top: 10%;
+    display:flex;
+    justify-content: center;
+    align-content: center;
+
 }

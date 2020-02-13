@@ -5,24 +5,22 @@
     <title>Depresso Login</title>
     <link rel = "stylesheet" type = "text/css" href = "loginstyle.css">
 </head>
-<body>
-    <div class = "bg">
+
+    <form class ="form-login">
+
         <img src = "Logo.png" alt = "logo" class = "responsive">
         <div class="container">
-            <label ><b>Username</b>
-                <input type="text" placeholder="Enter Username" name="uname" required>
-            </label>
+        <label for="inputusername"></label>
+        <input type="username" id = "inputusername" class = "input-box" placeholder="Enter Username"  required>
+        <label for="inputpassword"></label>
+        <input type="password" id = "inputpassword" class = "input-box" placeholder="Enter Password"  required>
 
-        </div>
-        <div class = "container">
-            <label ><b>Password</b>
-                <input type="password" placeholder="Enter Password" name="psw" required>
-            </label>
 
 
         </div>
         <button type="submit">Login</button>
 
-    </div>
-</body>
+
+    </form>
+
 </html>

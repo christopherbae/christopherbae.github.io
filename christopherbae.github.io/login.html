@@ -2,27 +2,102 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <script src = "myscript.js"></script>
+   <!-- <script src = "myscript.js"></script> -->
     <title>Depresso Login</title>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="/__/firebase/7.9.1/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="/__/firebase/7.9.1/firebase-analytics.js"></script>
+    <script src="/__/firebase/7.9.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebase/7.9.1/firebase-firestore.js"></script>
+
+    <!-- Initialize Firebase -->
+    <script src="/__/firebase/init.js"></script>
+
+
     <link rel = "stylesheet" type = "text/css" href = "loginstyle.css">
 </head>
 
-    <form class ="form-login">
+        <script>
+            const firebaseConfig = {
+                apiKey: "AIzaSyDVYno5lUC1wnepnelL58WNy4rpStu21jY",
+                authDomain: "depresso-d7acf.firebaseapp.com",
+                databaseURL: "https://depresso-d7acf.firebaseio.com",
+                projectId: "depresso-d7acf",
+                storageBucket: "depresso-d7acf.appspot.com",
+                messagingSenderId: "347690304511",
+                appId: "1:347690304511:web:585640e7fc137dc33a1dca",
+                measurementId: "G-DCWKDV6QJE"
+            };
+            function login(){
+
+                // if (firebase.auth().currentUser) {
+                // [START signout]
+                //   firebase.auth().signOut();
+                // [END signout]
+                //} else {
+                var email = document.getElementById('inputusername').value;
+                var password = document.getElementById('inputpassword').value;
+                if (email.length < 4) {
+                    alert('Please enter an email address.');
+                    return;
+                }
+                if (password.length < 4) {
+                    alert('Please enter a password.');
+                    return;
+                }
+                // Sign in with email and pass.
+                // [START authwithemail]
+                firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
+                    // Handle Errors here.
+                    var errorCode = error.code;
+                    var errorMessage = error.message;
+                    // [START_EXCLUDE]
+                    if (errorCode === 'auth/wrong-password') {
+                        alert('Wrong password.');
+                    } else {
+                        alert(errorMessage);
+                    }
+                    console.log(error);
+                    document.getElementById('login').disabled = false;
+                    // [END_EXCLUDE]
+                });
+                // [END authwithemail]
+                //}
+                document.getElementById('login').disabled = true;
+
+                window.location.href = "home.html";
+            }
+
+        function initapp(){
+            document.getElementById('login').addEventListener('click', login, false);
+            //document.getElementById('Signup').addEventListener('click', signup, false);
+        }
+        window.onload = function(){
+            initapp();
+        };
+        </script>
+
+   <form class ="form-login">
 
         <img src = "Logo.png" alt = "logo" class = "responsive">
         <div class="container">
         <label for="inputusername"></label>
-        <input type="username" id = "inputusername" class = "input-box" placeholder="Enter Username"  required>
+        <input type="username" id = "inputusername" class = "input-box" placeholder="Enter Username">
         <label for="inputpassword"></label>
-        <input type="password" id = "inputpassword" class = "input-box" placeholder="Enter Password"  required>
+        <input type="password" id = "inputpassword" class = "input-box" placeholder="Enter Password">
 
 
 
         </div>
-        <button type="submit" onclick = "login()">Log in</button>
-        <button type="Signup">Signup</button>
+        <button type="submit" id = "login">Log in</button>
+        <button type="Signup" id = "signup">Signup</button>
 
 
     </form>
+
+
 
 </html>

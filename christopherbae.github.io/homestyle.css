@@ -13,3 +13,18 @@ body {
     padding-bottom: 40px;
     background-color: #F3EFE1;
 }
+
+button{
+    background: #79B3C8;
+    border-radius: 100px;
+    padding: 20px 60px;
+    color: white;
+    font-size: 1.45em;
+    position: initial;
+    margin: 0 auto;
+    margin-top: 10%;
+    display:flex;
+    justify-content: center;
+    align-content: center;
+
+}

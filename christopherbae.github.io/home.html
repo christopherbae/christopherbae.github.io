@@ -3,9 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <title>Home</title>
+    <script src = "myscript.js"></script>
     <link rel = "stylesheet" type = "text/css" href = "homestyle.css">
+    <link rel="shortcut icon" href="">
+    <script src="https://www.gstatic.com/firebasejs/7.9.3/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.9.3/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.9.3/firebase-database.js"></script>
+
 </head>
+<script>
+    /*const firebaseConfig = {
+        apiKey: "AIzaSyDVYno5lUC1wnepnelL58WNy4rpStu21jY",
+        authDomain: "depresso-d7acf.firebaseapp.com",
+        databaseURL: "https://depresso-d7acf.firebaseio.com",
+        projectId: "depresso-d7acf",
+        storageBucket: "depresso-d7acf.appspot.com",
+        messagingSenderId: "347690304511",
+        appId: "1:347690304511:web:585640e7fc137dc33a1dca",
+        measurementId: "G-DCWKDV6QJE"
+    };*/
+
+    firebase.initializeApp(firebaseConfig);
+
+    // Get a reference to the database service
+    var database = firebase.database();
+
+    function writeUserData() {
+        window.location.href = "nextpage.html";
+
+        firebase.database().ref('Users/').set({
+            username: "Chris",
+            email: "cb201299@gmail.com"
+        });
+    }
+    function initapp() {
+        document.getElementById('test').addEventListener('click', writeUserData, false);
+        //document.getElementById('Signup').addEventListener('click', signup, false);
+    }
+
+    window.onload = function () {
+        alert("test")
+        initapp();
+        };
+
+</script>
 <body>
+    <button type = "test" id = "test">Test</button>
 
 </body>
 </html>

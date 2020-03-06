@@ -5,8 +5,7 @@
 }
 
 body {
-    display: -ms-flexbox;
-    display: flex;
+    display: block;
     -ms-flex-align: center;
     align-items: center;
     padding-top: 40px;
@@ -23,7 +22,7 @@ button{
     position: initial;
     margin: 0 auto;
     margin-top: 10%;
-    display:flex;
+    display:block;
     justify-content: center;
     align-content: center;
 

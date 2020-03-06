@@ -2,8 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-   <!-- <script src = "myscript.js"></script> -->
+    <!-- <script src = "myscript.js"></script> -->
     <title>Depresso Login</title>
+    <link rel="shortcut icon" href="">
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="/__/firebase/7.9.1/firebase-app.js"></script>
 
@@ -11,7 +12,7 @@
          https://firebase.google.com/docs/web/setup#available-libraries -->
     <script src="/__/firebase/7.9.1/firebase-analytics.js"></script>
     <script src="/__/firebase/7.9.1/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebase/7.9.1/firebase-firestore.js"></script>
+
 
     <!-- Initialize Firebase -->
     <script src="/__/firebase/init.js"></script>
@@ -32,7 +33,7 @@
                 measurementId: "G-DCWKDV6QJE"
             };
             function login(){
-
+                var e = 0;
                 // if (firebase.auth().currentUser) {
                 // [START signout]
                 //   firebase.auth().signOut();
@@ -50,7 +51,10 @@
                 }
                 // Sign in with email and pass.
                 // [START authwithemail]
-                firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
+                document.getElementById('login').disabled = true;
+                firebase.auth().signInWithEmailAndPassword(email, password).then(function(){
+                    window.location.href = "home.html";
+                }).catch(function(error) {
                     // Handle Errors here.
                     var errorCode = error.code;
                     var errorMessage = error.message;
@@ -62,18 +66,34 @@
                     }
                     console.log(error);
                     document.getElementById('login').disabled = false;
+                    e = 1;
                     // [END_EXCLUDE]
                 });
+
                 // [END authwithemail]
                 //}
-                document.getElementById('login').disabled = true;
+                //document.getElementById('login').disabled = true;
 
-                window.location.href = "home.html";
+                //window.location.href = "home.html";
             }
+        function signup(){
+                var email = document.getElementById('inputusername').value;
+                var password = document.getElementById('inputpassword').value;
+                document.getElementById('signup').disabled = true;
+                firebase.auth().createUserWithEmailAndPassword(email, password).then(function(){
+                    window.location.href = "home.html";
+                }).catch(function(error) {
+                // Handle Errors here.
+                var errorCode = error.code;
+                var errorMessage = error.message;
+                document.getElementById('signup').disabled = false;
+                // ...
+                });
 
+        }
         function initapp(){
             document.getElementById('login').addEventListener('click', login, false);
-            //document.getElementById('Signup').addEventListener('click', signup, false);
+            document.getElementById('signup').addEventListener('click', signup, false);
         }
         window.onload = function(){
             initapp();
@@ -93,7 +113,8 @@
 
         </div>
         <button type="submit" id = "login">Log in</button>
-        <button type="Signup" id = "signup">Signup</button>
+
+        <button type="signup" id = "signup">Signup</button>
 
 
     </form>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Brew</title>
+    <script src = "myscript.js"></script>
+    <link rel = "stylesheet" type = "text/css" href = "makecoffee.css">
+    <link rel="shortcut icon" href="">
+    <script src="https://www.gstatic.com/firebasejs/7.9.3/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.9.3/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.9.3/firebase-database.js"></script>
+
+</head>
+
+<script>
+    firebase.initializeApp(firebaseConfig);
+    function writeUserData() {
+
+        //window.location.href = "nextpage.html";
+        //firebase.database().ref('Users').child('Chris').set({
+          //  username: "Rohan"
+        //});
+        //alert("1");
+        window.location.href = "nextpage.html";
+    }
+    function presetselect() {
+
+        if(confirm("Are you sure about your selection?")){
+            //window.location.href = "home.html";
+            firebase.database().ref('Users/').set({
+                coffee: "1211"
+            });
+
+        }
+        else{
+            window.location.href = "makecoffee.html";
+        }
+
+    }
+    function custombrew() {
+        window.location.href = "createpreset.html";
+    }
+    function initapp() {
+       // document.getElementById('Preset1').addEventListener('click', presetselect, false);
+        document.getElementById('Preset2').addEventListener('click', presetselect, false);
+        document.getElementById('Preset3').addEventListener('click', presetselect, false);
+        document.getElementById('Preset4').addEventListener('click', presetselect, false);
+        document.getElementById('Preset5').addEventListener('click', presetselect, false);
+        document.getElementById('Preset6').addEventListener('click', presetselect, false);
+        document.getElementById('Preset7').addEventListener('click', presetselect, false);
+        document.getElementById('CustomBrew').addEventListener('click', custombrew, false);
+    }
+
+    window.onload = function () {
+        initapp();
+    };
+
+</script>
+
+<body>
+    <img src = "Logo.png" alt = "logo" class = "responsive">
+    <a HREF="home.html" target="_self">
+    <button type="Preset1" id = "Preset1" oncick = "presetselect()">Preset 1</button>
+    </a>
+    <button type="Preset2" id = "Preset2">Preset 2</button>
+    <button type="Preset3" id = "Preset3">Preset 3</button>
+    <button type="Preset4" id = "Preset4">Preset 4</button>
+    <button type="Preset5" id = "Preset5">Preset 5</button>
+    <button type="Preset6" id = "Preset6">Preset 6</button>
+    <button type="Preset7" id = "Preset7">Preset 7</button>
+    <button type="CustomBrew" id = "CustomBrew">Custom Brew</button>
+</body>
+</html>

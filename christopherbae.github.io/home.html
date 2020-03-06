@@ -9,6 +9,11 @@
     <script src="https://www.gstatic.com/firebasejs/7.9.3/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.9.3/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.9.3/firebase-database.js"></script>
+    <!--<script src="https://www.gstatic.com/firebase/7.9.1/firebase-firestore.js"></script>-->
+
+    <!-- Initialize Firebase -->
+    <script src="/__/firebase/init.js"></script>
+    </body>
 
 </head>
 <script>
@@ -30,25 +35,37 @@
 
     function writeUserData() {
         window.location.href = "nextpage.html";
-
-        firebase.database().ref('Users/').set({
-            username: "Chris",
-            email: "cb201299@gmail.com"
+        firebase.database().ref('Users').child('Chris').set({
+            username: "Rohan"
         });
     }
+    function makecoffee() {
+        window.location.href = "makecoffee.html";
+    }
+    function createpreset(){
+        window.location.href = "createpreset.html";
+    }
+    function editpreset(){
+        window.location.href = "editpreset.html";
+    }
     function initapp() {
-        document.getElementById('test').addEventListener('click', writeUserData, false);
-        //document.getElementById('Signup').addEventListener('click', signup, false);
+        document.getElementById('MakeCoffee').addEventListener('click', makecoffee, false);
+        document.getElementById('CreatePreset').addEventListener('click', createpreset, false);
+        document.getElementById('EditPreset').addEventListener('click', editpreset, false)
     }
 
     window.onload = function () {
-        alert("test")
         initapp();
-        };
+    };
 
 </script>
 <body>
-    <button type = "test" id = "test">Test</button>
+    <button type = "MakeCoffee" id = "MakeCoffee">Make Coffee</button>
+    <button type = "CreatePreset" id = "CreatePreset">Create Preset</button>
+    <button type = "EditPreset" id = "EditPreset">Edit Preset</button>
+
+
+
 
 </body>
 </html>

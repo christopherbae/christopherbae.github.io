@@ -29,6 +29,8 @@
             //window.location.href = "home.html";
             firebase.database().ref('Users/').set({
                 coffee: "1211"
+            }).then(function(){
+                window.location.href = "home.html";
             });
 
         }
@@ -41,7 +43,7 @@
         window.location.href = "createpreset.html";
     }
     function initapp() {
-       // document.getElementById('Preset1').addEventListener('click', presetselect, false);
+        document.getElementById('Preset1').addEventListener('click', presetselect, false);
         document.getElementById('Preset2').addEventListener('click', presetselect, false);
         document.getElementById('Preset3').addEventListener('click', presetselect, false);
         document.getElementById('Preset4').addEventListener('click', presetselect, false);
@@ -59,9 +61,7 @@
 
 <body>
     <img src = "Logo.png" alt = "logo" class = "responsive">
-    <a HREF="home.html" target="_self">
-    <button type="Preset1" id = "Preset1" oncick = "presetselect()">Preset 1</button>
-    </a>
+    <button type="Preset1" id = "Preset1">Preset 1</button>
     <button type="Preset2" id = "Preset2">Preset 2</button>
     <button type="Preset3" id = "Preset3">Preset 3</button>
     <button type="Preset4" id = "Preset4">Preset 4</button>

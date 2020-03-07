@@ -25,9 +25,9 @@
     }
     function presetselect() {
 
-        if(confirm("Are you sure about your selection?")){
+        if(confirm("Are you sure?")){
             //window.location.href = "home.html";
-            firebase.database().ref('Users/').set({
+            firebase.database().ref('Queue/1').set({
                 coffee: "1211"
             }).then(function(){
                 window.location.href = "home.html";

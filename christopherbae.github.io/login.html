@@ -12,6 +12,7 @@
          https://firebase.google.com/docs/web/setup#available-libraries -->
     <script src="/__/firebase/7.9.1/firebase-analytics.js"></script>
     <script src="/__/firebase/7.9.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.9.3/firebase-database.js"></script>
 
 
     <!-- Initialize Firebase -->
@@ -81,6 +82,29 @@
                 var password = document.getElementById('inputpassword').value;
                 document.getElementById('signup').disabled = true;
                 firebase.auth().createUserWithEmailAndPassword(email, password).then(function(){
+                    /*firebase.database().ref('Users/' + email).push({
+                        1: "",
+                        2: "",
+                        3: "",
+                        4: "",
+                        5: "",
+                        6: "",
+                        7: ""
+                    });*/
+                    var user = firebase.auth().currentUser;
+                    var res = email.split("@");
+                    firebase.database().ref('Users/' + res[0]).set({
+                        1: "",
+                        2: "",
+                        3: "",
+                        4: "",
+                        5: "",
+                        6: "",
+                        7: ""
+                    });
+                    user.updateProfile({
+                        displayName: res[0]
+                    });
                     window.location.href = "home.html";
                 }).catch(function(error) {
                 // Handle Errors here.
